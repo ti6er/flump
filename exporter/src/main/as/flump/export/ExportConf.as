@@ -3,6 +3,11 @@
 
 package flump.export {
 
+import com.threerings.util.Log;
+import com.threerings.util.Set;
+import com.threerings.util.Sets;
+import com.threerings.util.StringUtil;
+
 import flash.display.StageQuality;
 import flash.filesystem.File;
 
@@ -10,11 +15,6 @@ import flump.mold.AtlasMold;
 import flump.mold.optional;
 import flump.mold.require;
 import flump.xfl.XflLibrary;
-
-import com.threerings.util.Log;
-import com.threerings.util.Set;
-import com.threerings.util.Sets;
-import com.threerings.util.StringUtil;
 
 public class ExportConf
 {
@@ -85,6 +85,7 @@ public class ExportConf
             case JSONFormat.NAME.toLowerCase(): formatClass = JSONFormat; break;
             case JSONZipFormat.NAME.toLowerCase(): formatClass = JSONZipFormat; break;
             case XMLFormat.NAME.toLowerCase(): formatClass = XMLFormat; break;
+			case CCBFormat.NAME.toLowerCase(): formatClass = CCBFormat; break;
             default:
                 log.error("Invalid publish format", "name", format);
                 formatClass = JSONZipFormat;
